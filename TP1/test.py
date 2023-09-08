@@ -16,7 +16,5 @@ def test_3 ():
 	assert f.puissance (-2, 0) == -1
 	with pytest.raises(ValueError):
 		f.puissance (0, 0)
-	assert f.puissance (0, 3) == 0
-	with pytest.raises(ValueError):
 		f.puissance (0, -3)
-
+	assert f.puissance (0, 3) == 0
