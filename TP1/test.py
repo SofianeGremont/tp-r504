@@ -14,11 +14,11 @@ def test_3 ():
 	assert f.puissance (-2, 2) == 4
 	assert f.puissance (2, 0) == 1
 	assert f.puissance (-2, 0) == -1
-	assert f.puissance (0, 0) == 1
+	with pytest.raises(ValueError):
+		f.puissance (0, 0)
 	assert f.puissance (0, 3) == 0
-	assert f.puissance (0, -3) == 0
+	with pytest.raises(ValueError):
+		f.puissance (0, -3)
 
 
-test_1 ()
-test_2 ()
-test_3 ()
+

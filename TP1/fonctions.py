@@ -12,7 +12,7 @@ def puissance(a, b):
     if a < 0 and b == 0:
       resultat = -1
     if a == 0 and b == 0:
-      resultat = 1
+      raise ValueError("Impossible")
     if b < 0:
-      resultat = 0
+      raise ValueError("L'exposant doit être positif ou nul.")
     return resultat
