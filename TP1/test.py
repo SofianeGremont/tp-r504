@@ -20,5 +20,3 @@ def test_3 ():
 	with pytest.raises(ValueError):
 		f.puissance (0, -3)
 
-
-
