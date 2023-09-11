@@ -19,7 +19,7 @@ jobs:
       - name: Nom OS
         run: echo "Système d'exploitation de la VM :" ${{ runner.os }}
       - name: Set up Python for Demo
-        uses: actions/setup−python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Version python
