@@ -3,6 +3,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python−version: ["3.8", "3.10"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python for Demo
@@ -15,3 +18,10 @@ jobs:
         run: echo "Nom de la branche :" ${{ github.ref }}
       - name: VM OS
         run: echo "Système d'exploitation de la VM :" ${{ runner.os }}
+      - name: Set up Python for Demo
+        uses: actions/setup−python@v4
+        with:
+          python−version: ${{ matrix.python−version }}
+      - name: Version python
+        run: echo "version de python :" ${{ matrix.python−version }}
+
