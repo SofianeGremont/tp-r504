@@ -16,7 +16,7 @@ jobs:
         run: pytest TP1/test.py
       - name: Nom branche
         run: echo "Nom de la branche :" ${{ github.ref }}
-      - name: VM OS
+      - name: Nom OS
         run: echo "Système d'exploitation de la VM :" ${{ runner.os }}
       - name: Set up Python for Demo
         uses: actions/setup−python@v4
