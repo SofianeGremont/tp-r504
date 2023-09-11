@@ -14,4 +14,4 @@ jobs:
       - name: Nom branche
         run: echo "Nom branche : ${{ github.ref }}"
       - name: VM OS
-        run: echo "l'OS de la VM  : ${{ runner.os }}."
+        run: echo "l'OS de la VM  : ${{ runner.os }}"
