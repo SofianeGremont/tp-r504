@@ -30,5 +30,7 @@ jobs:
         with:
           os-version: ${{ matrix.os-version }}
       - name: Version ubuntu
-        run: echo "version de ubuntu :" ${{ matrix.os-version }}
+        run: echo "Version de l'OS:" ${{ matrix.os-version }}
+        run: lsb_release -a
+        
 
