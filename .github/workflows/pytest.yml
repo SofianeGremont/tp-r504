@@ -2,10 +2,11 @@ name: tests unitaires
 on: [push]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os-version }}
     strategy:
       matrix:
         python-version: ["3.8", "3.10"]
+        os-version: ["22.04", "20.04"]
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python for Demo
@@ -24,4 +25,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Version python
         run: echo "version de python :" ${{ matrix.python-version }}
+      - name: Set up Ubuntu
+        uses: actions/setup-python@v4
+        with:
+          os-version: ${{ matrix.os-version }}
+      - name: Version ubuntu
+        run: echo "version de ubuntu :" ${{ matrix.os-version }}
 
