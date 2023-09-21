@@ -12,7 +12,7 @@ fi
 
 n="$1"
 
-for ((i=1; i<=n; i++)); do
+for ((i=0; i<n; i++)); do
     dossier="a$i"
     mkdir -p ~/"$dossier"
     fichier=~/"$dossier"/log.txt
