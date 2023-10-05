@@ -5,11 +5,11 @@ app = Flask(__name__)
  
 # MySQL configuration
 db_config = {
-    'host': '127.0.0.1',
+    'host': 'tp4-sql',
     'user': 'root',
     'password': 'foo',
     'database': 'demosql',
-    'port': '3307'
+    'port': '3306'
 }
 
 # Initialize MySQL connection
