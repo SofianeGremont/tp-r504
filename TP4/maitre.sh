@@ -45,13 +45,13 @@ step_run-app2() {
         chmod u+x run-app2.sh
         ./run-app2.sh
 	docker stop tp4-app-2
-	docker start tp4-app-2
+	docker start tp4-app
 }
 
 run_step step_create_network
 run_step step_run_mysql
 echo "merci de patienter quelques secondes"
-sleep 10
+sleep 45
 run_step step_filldb
 run_step step_build_image
 run_step step_build_image2
@@ -59,4 +59,4 @@ run_step step_run-app
 run_step step_run-app2
 
 echo "Le script a terminé avec succès."
-echo "Le conteneur <tp4-app> est actuellement arrêté pour laisser le conteneur <tp4-app-2> fonctionné"
+echo "Le conteneur <tp4-app-2> est actuellement arrêté pour laisser le conteneur <tp4-app> fonctionné"
