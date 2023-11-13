@@ -1,0 +1,43 @@
+USE gestion_parc_informatique;
+
+LOAD DATA LOCAL INFILE '/home/user/sae51/donnees/techniciens.csv'
+INTO TABLE Techniciens
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE '/home/user/sae51/donnees/utilisateurs.csv'
+INTO TABLE Utilisateurs
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE '/home/user/sae51/donnees/maintenances.csv'
+INTO TABLE Maintenances
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE '/home/user/sae51/donnees/marques.csv'
+INTO TABLE Marque
+FIELDS TERMINATED BY ', '
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE '/home/user/sae51/donnees/logiciels.csv'
+INTO TABLE Logiciels
+FIELDS TERMINATED BY ', '
+ENCLOSED BY ''
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE '/home/user/sae51/donnees/machines.csv'
+INTO TABLE Machines
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;

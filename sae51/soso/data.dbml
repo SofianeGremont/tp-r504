@@ -1,0 +1,38 @@
+Table Techniciens {
+    ID int [primary key, unique, increment]
+    Nom varchar(255)
+}
+
+Table Utilisateurs {
+    ID int [primary key, unique, increment]
+    Nom varchar(255)
+    Droit varchar(255)
+}
+
+Table Maintenances {
+    ID int [primary key, unique, increment]
+    TechnicienID int [ref: > Techniciens.ID]
+    DateDebut date
+    DateFin date
+    Actions varchar(255)
+}
+
+Table Machines {
+    ID int [primary key, unique, increment]
+    DateAchat date
+    Marque varchar(255)
+    UtilisateurID int [ref: > Utilisateurs.ID]
+    MaintenanceID int [ref: > Maintenances.ID]
+}
+
+Table Logiciels {
+    MachineID int [ref: > Machines.ID]
+    Version varchar(255)
+    Licence varchar(255)
+}
+
+Table Configuration {
+    MachineID int [ref: > Machines.ID]
+    OS varchar(255)
+    Ram varchar(255)
+}
