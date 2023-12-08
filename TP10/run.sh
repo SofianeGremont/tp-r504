@@ -1,1 +1,2 @@
-java -classpath .;/home/user/Téléchargements/lib/* Client1.java $1
+set -x
+java -classpath ".:/home/user/tp-r504/TP10/client/lib/*" Client1 $1

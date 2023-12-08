@@ -1,1 +1,1 @@
-sudo javac -classpath "/home/user/Téléchargements/lib/*" *.java
+javac -classpath "/home/user/tp-r504/TP10/client/lib/*" *.java
