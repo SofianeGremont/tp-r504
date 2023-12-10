@@ -19,7 +19,7 @@ public class Client3 {
             }
 
             CloseableHttpClient client = HttpClients.createDefault();
-            HttpGet request = new HttpGet("http://omdbapi.com?apikey=751ea6aa&t=jaws");
+            HttpGet request = new HttpGet("http://omdbapi.com?apikey=751ea6aa&t=" + title);
 
             try {
                 System.out.println("Executing request " + request.getRequestLine());
