@@ -38,6 +38,10 @@ public class Client3 {
                         String rottenTomatoesScore = findRottenTomatoesScore(ratingsArray);
 
                         System.out.println("Score avis positif : " + rottenTomatoesScore);
+                        
+                        int scoreInt = parseRottenTomatoesScore(rottenTomatoesScore);
+                        String mention = determinerMention(scoreInt);
+                        System.out.println("Mention : " + mention);
 
                         jsonReader.close();
                     }
@@ -67,4 +71,25 @@ public class Client3 {
         }
         return "N/A";
     }
+
+    private static int parseRottenTomatoesScore(String score) {
+        try {
+            return Integer.parseInt(score.replaceAll("%", ""));
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
+    private static String determinerMention(int score) {
+        if (score < 20) {
+            return "Nul";
+        } else if (score >= 20 && score <= 50) {
+            return "Bof";
+        } else if (score > 50 && score <= 70) {
+            return "Bien";
+        } else {
+            return "Très bien";
+        }
+    }
 }
+
