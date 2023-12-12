@@ -37,7 +37,7 @@ public class Client3 {
                         JsonArray ratingsArray = jsonObject.getJsonArray("Ratings");
                         String rottenTomatoesScore = findRottenTomatoesScore(ratingsArray);
 
-                        System.out.println("Score Rotten Tomatoes : " + rottenTomatoesScore);
+                        System.out.println("Score avis positif : " + rottenTomatoesScore);
 
                         jsonReader.close();
                     }
