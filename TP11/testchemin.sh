@@ -30,4 +30,3 @@ for dossier in "${chemin_composants[@]}"; do
 done
 
 echo "Chemin valide"
-

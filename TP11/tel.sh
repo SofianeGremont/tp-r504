@@ -16,6 +16,6 @@ wget -q "$image_url" -O xkcd_comic.png
 
 xdg-open xkcd_comic.png
 
-sleep 15
+sleep 5
 
 rm xkcd_page.html xkcd_comic.png
