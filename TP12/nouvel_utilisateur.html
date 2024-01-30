@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulaire Nouvel Utilisateur</title>
+</head>
+<body>
+    <h2>Formulaire Nouvel Utilisateur</h2>
+    <form method="post" action="/newuser/">
+        <label for="nom_utilisateur">Nom d'utilisateur :</label>
+        <input type="text" id="nom_utilisateur" name="nom_utilisateur" required>
+        <button type="submit">Envoyer</button>
+    </form>
+    
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
