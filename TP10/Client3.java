@@ -31,6 +31,11 @@ public class Client3 {
                         JsonReader jsonReader = Json.createReader(reader);
                         JsonObject jsonObject = jsonReader.readObject();
 
+                        if ("False".equalsIgnoreCase(jsonObject.getString("Response"))) {
+                            System.out.println("Aucun film trouvé pour le titre : " + title);
+                            continue;
+                        }
+
                         System.out.println("Date de sortie : " + jsonObject.getString("Released"));
                         System.out.println("Acteurs principaux : " + jsonObject.getString("Actors"));
 
@@ -38,7 +43,7 @@ public class Client3 {
                         String rottenTomatoesScore = findRottenTomatoesScore(ratingsArray);
 
                         System.out.println("Score avis positif : " + rottenTomatoesScore);
-                        
+
                         int scoreInt = parseRottenTomatoesScore(rottenTomatoesScore);
                         String mention = determinerMention(scoreInt);
                         System.out.println("Mention : " + mention);
@@ -92,4 +97,3 @@ public class Client3 {
         }
     }
 }
-
