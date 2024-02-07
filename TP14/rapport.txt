@@ -1,0 +1,38 @@
+Q1.1 - Lancer votre VM Debian11 et sans faire de mise à jour, installer l’outil Debsecan :
+$ sudo apt install debsecan puis le lancer.
+Combien de CVE trouve-t-il ?
+1073
+
+Q1.2 - Limiter le volume en précisant le "codename" de la distribution avec l’option –suite
+(on obtient ce codename avec $ lsb_release --codename --short )
+Combien de CVE trouve-t-il ?
+1073
+
+Q1.3 - Certaines de ces CVE sont déjà corrigées, et devraient disparaitre de la liste après une MAJ. Don-
+ner le nombre de CVE déjà corrigées en ajoutant l’option --only-fixed :
+101
+
+Q1.4 - Faire une mise à jour générale (apt update/upgrade). Si la machine le demande, désactivez tous
+les services, avant de rebooter, puis refaire le test.
+Combien de CVE sont encore présentes ?
+972
+
+Normalement, il ne devrait plus y avoir de CVE corrigées. Combien en trouvez-vous ?
+0
+
+Q1.5 - Proposez ci-dessous un script qui va faire en sorte que la recherche de vulnérabilités soit exécu-
+tée tous les jours à 02h30 :
+security_scan.sh :
+#!/bin/bash
+
+LOG_FILE="/var/log/security_scan.log"
+
+debsecan --suite=bullseye --only-fixed --format detail >> $LOG_FILE 2>&1
+
+après :
+chmod +x /usr/local/bin/security_scan.sh
+crontab -e
+30 2 * * * /tp-r504/TP14/security_scan.sh
+
+
+
