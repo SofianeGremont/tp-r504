@@ -4,7 +4,11 @@
     <title>Accueil</title>
 </head>
 <body>
-    <h1>Bienvenue sur le site de Sofiane Grémont</h1>
+    <h1>Bienvenue sur le site</h1>
+    <a href="{{ url_for('liste_utilisateurs') }}">Voir la liste des utilisateurs</a>
+    <br>
     <a href="{{ url_for('new_user') }}">Inscription</a>
+    <br>
+    <a href="{{ url_for('connect') }}">Connexion</a>
 </body>
 </html>

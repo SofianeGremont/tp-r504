@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des utilisateurs</title>
+</head>
+<body>
+    <h1>Liste des utilisateurs</h1>
+    <ul>
+        {% for user in users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+</body>
+</html>

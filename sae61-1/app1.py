@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import re
 import hashlib
 import mysql.connector
+import secrets
 
 app = Flask(__name__)
+
+# Clé secrète pour les sessions
+app.secret_key = secrets.token_hex(16)
 
 # Configuration de la base de données
 DATABASE = {
@@ -60,10 +64,46 @@ def new_user():
 def success():
     return render_template('success.html')
 
+@app.route('/liste')
+def liste_utilisateurs():
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute('SELECT username FROM users')
+    users = [row[0] for row in cursor.fetchall()]
+    cursor.close()
+    return render_template('liste.html', users=users)
+
+@app.route('/connect', methods=['GET', 'POST'])
+def connect():
+    if request.method == 'POST':
+        username = request.form['id']
+        password = request.form['passwd']
+
+        # Connexion à la base de données et vérification de l'utilisateur
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute('SELECT password FROM users WHERE username = %s', (username,))
+        user = cursor.fetchone()
+        cursor.close()
+
+        if user:
+            hashed_password = hashlib.sha256(password.encode()).hexdigest()
+            if hashed_password == user[0]:  # Vérification du mot de passe
+                session['username'] = username  # Enregistrement de l'utilisateur dans la session
+                return redirect(url_for('success2'))  # Redirection vers la page de succès
+
+        return render_template('login.html', error='Identifiant ou mot de passe incorrect')
+
+    return render_template('login.html')
+
+@app.route('/success2')
+def success2():
+    username = session.get('username')
+    return render_template('success2.html', username=username)
+
 # Fonction pour se connecter à la base de données
 def get_db():
     return mysql.connector.connect(**DATABASE)
 
 if __name__ == '__main__':
     app.run(debug=True)
-
